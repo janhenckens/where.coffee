@@ -1,5 +1,6 @@
 /bootstrap/compiled.php
 /vendor
+/app/assets/node_modules
 composer.phar
 composer.lock
 .env.local.php
@@ -8,4 +9,4 @@ composer.lock
 Thumbs.db
 /node_modules
 /tmp
-/.sass-cache
+/app/assets/.sass-cache
