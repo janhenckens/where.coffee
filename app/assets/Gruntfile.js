@@ -2,13 +2,11 @@ module.exports = function(grunt) {
     // 1. All configuration goes here
     grunt.initConfig({
         pkg: grunt.file.readJSON('package.json'),
-
-
         // SASS
         sass: {
             dist: {
                 options: {
-                    style: 'compressed'
+                    style: 'expanded'
                 },
                 files: {
                     '../../build/css/main.css': 'sass/main.scss'
@@ -35,15 +33,9 @@ module.exports = function(grunt) {
         },
         // WATCH
        watch: {
-           options: {
-               livereload: true
-           },
            css: {
                files: ['sass/**/*.scss'],
-               tasks: ['css', 'notify:css'],
-               options: {
-                   spawn: true,
-               }
+               tasks: ['css', 'notify:css']
            }
        }
     });
@@ -52,7 +44,7 @@ module.exports = function(grunt) {
     require('load-grunt-tasks')(grunt);
 
     // 3. Where we tell Grunt what to do when we type "grunt" into the terminal.
-    grunt.registerTask('default', ['build']);
+    grunt.registerTask('default', ['build' , 'watch']);
     grunt.registerTask('css', ['sass']);
     grunt.registerTask('build', ['css' , 'cssmin']);
 };
