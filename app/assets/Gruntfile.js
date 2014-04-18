@@ -75,7 +75,7 @@ module.exports = function(grunt) {
 
     require('load-grunt-tasks')(grunt);
     grunt.registerTask('default', ['build' , 'watch']);
-    grunt.registerTask('css', ['sass']);
+    grunt.registerTask('css', ['sass' , 'cssmin']);
     grunt.registerTask('js', ['jshint' , 'jsconcat']);
-    grunt.registerTask('build', ['css' , 'cssmin', 'jshint']);
+    grunt.registerTask('build', ['css' , 'jshint']);
 };
