@@ -3,22 +3,30 @@ module.exports = function(grunt) {
     grunt.initConfig({
         pkg: grunt.file.readJSON('package.json'),
 
-        jsconcat: {
-            main: {
-                src: [
-                    'js/libs/*.js', // All JS in the libs folder
-                    'js/components/*.js', // All JS in the components folder
-                    'js/main.js'  // The pbig main file!
-                ],
-                dest: 'build/js/main.js'
-            },
-        },
         // JSHINT
         jshint: {
+            all: ['js/**/*.js']
+        },
+        //CONCAT
+        concat: {
+          options: {
+            separator: ';',
+          },
+          dist: {
+            src: ['js/**/*.js'],
+            dest: '../../build/js/main.js',
+          },
+        },
+        //JSUGLIFY
+        uglify: {
             options: {
-                reporter: require('jshint-stylish')
+                mangle: false
             },
-            target: ['../../build/js/main.js', 'js/*.js']
+            my_target: {
+              files: {
+                '../../public/assets/js/main.min.js': ['../../build/js/main.js']
+              }
+            }
         },
         // SASS
         sass: {
@@ -76,6 +84,6 @@ module.exports = function(grunt) {
     require('load-grunt-tasks')(grunt);
     grunt.registerTask('default', ['build' , 'watch']);
     grunt.registerTask('css', ['sass' , 'cssmin']);
-    grunt.registerTask('js', ['jshint' , 'jsconcat']);
-    grunt.registerTask('build', ['css' , 'jshint']);
+    grunt.registerTask('js', ['jshint' , 'concat' , 'uglify']);
+    grunt.registerTask('build', ['css' , 'js']);
 };
