@@ -11,6 +11,6 @@ class HomeController extends BaseController {
 			'body' => 'This is awesome, from the HomeController'
 		);
 		
-		$this->layout->content = View::make('test', $data);
+		$this->layout->content = View::make('current_location', $data);
 	}
 }
