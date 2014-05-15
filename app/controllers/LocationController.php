@@ -14,7 +14,7 @@ class LocationController extends BaseController {
 			$lat = Input::get('latitude');
 			$location = $lat . "," . $long;
 			/** CURL to Foursquare to get the data based on the above mentioned $location **/
-			$url = "https://api.foursquare.com/v2/venues/explore?client_id=R1RAIUEMOV013YRFZQWIPLV404ELYNWBM4ILDDYAIQUUYLLK&client_secret=KN5PYBT3QWCXK5SY3X0IHQZTWIMNBVIUV3RZ53NKFENUX41U&v=20130815&ll=" . $location . "&query=coffee&limit=10";
+			$url = "https://api.foursquare.com/v2/venues/explore?client_id=R1RAIUEMOV013YRFZQWIPLV404ELYNWBM4ILDDYAIQUUYLLK&client_secret=KN5PYBT3QWCXK5SY3X0IHQZTWIMNBVIUV3RZ53NKFENUX41U&v=20130815&ll=" . $location . "&query=coffee&limit=1";
 			$curl = curl_init();
 			curl_setopt_array($curl, 
 				array(
@@ -24,7 +24,7 @@ class LocationController extends BaseController {
 				);
 			$result = curl_exec($curl);
 			/** Return JSON data to ajax script **/
-			return json_encode($result);
+			return $result;
 			curl_close($curl);
 		}
 	}
