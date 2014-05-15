@@ -1,17 +1,16 @@
 <!doctype html>
 <html>
 <head>
-	<title>Something</title>
+	<title>where.coffee</title>
 	<link rel="stylesheet" type="text/css" href="/assets/css/main.min.css">
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>        
 	<script type="text/javascript" src="/assets/js/main.min.js"></script>
 </head>
 <body>
-<input type="button" value="Search my current location"
-    onclick="javascript:showlocation()" />   <br/>
- 
-Latitude: <span id="latitude"></span> <br/>
-Longitude: <span id="longitude"></span><br />
-Altitude: <span id="altitude"></span><br />
 @yield('content')
+<!--  <button id="getlocation">Get location</button>
+    <div id="location"></div> -->
+
+
 </body>
 </html>

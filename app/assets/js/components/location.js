@@ -12,25 +12,32 @@ $(function(){
       var $lat = position.coords.latitude;
       console.log("Longitude: " + $long);
       console.log("Latitude: " + $lat);
+
+
+      $.post('location/get', {longitude: $long, latitude: $lat}, function(data){
+        console.log(data);
+        console.log("Return JSON data (3)");
+
+      });
       // start ajax post request    
-      $.ajax({
-        url: 'location/get',
-        type: 'post',
-        data: {'latitude': $lat, 'longitude': $long},
-        success: function(data) {
-          var feed = jQuery.parseJSON(data);
-          console.log(feed.meta);
-          for (var i = 0, l=feed.response.groups[0].items.length ;i < l; i++) 
-          {
-            $( "#location" ).append(feed.response.groups[0].items[i].venue.name + "(" + feed.response.groups[0].items[i].venue.location.lat + "/" + feed.response.groups[0].items[i].venue.location.lng + ")<br>");
-          }
-        },
-        error: function(xhr, desc, err) {
-          console.log(xhr);
-          console.log("Details: " + desc + "\nError:" + err);
-        }
-      }); 
-      // end ajax call
+      // $.ajax({
+      //   url: 'location/get',
+      //   type: 'post',
+      //   data: {'latitude': $lat, 'longitude': $long},
+      //   success: function(data) {
+      //     var feed = jQuery.parseJSON(data);
+      //     console.log(feed.meta);
+      //     for (var i = 0, l=feed.response.groups[0].items.length ;i < l; i++) 
+      //     {
+      //       $( "#location" ).append(feed.response.groups[0].items[i].venue.name + "(" + feed.response.groups[0].items[i].venue.location.lat + "/" + feed.response.groups[0].items[i].venue.location.lng + ")<br>");
+      //     }
+      //   },
+      //   error: function(xhr, desc, err) {
+      //     console.log(xhr);
+      //     console.log("Details: " + desc + "\nError:" + err);
+      //   }
+      // }); 
+      // // end ajax call
     }
     function error(position) {
       console.log(position);
