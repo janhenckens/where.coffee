@@ -24,7 +24,7 @@ class LocationController extends BaseController {
 				);
 			$result = curl_exec($curl);
 			/** Return JSON data to ajax script **/
-			return $result;
+			return json_encode($result);
 			curl_close($curl);
 		}
 	}

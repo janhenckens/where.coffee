@@ -15,8 +15,7 @@ $(function(){
 
       // start ajax post request    
       $.post('location/', {longitude: $long, latitude: $lat}, function(json){
-        var locations = jQuery.parseJSON(json);
-        console.log(locations.meta);
+        console.log(json);
       });
       // end ajax call
     }
