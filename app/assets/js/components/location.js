@@ -15,7 +15,14 @@ $(function(){
 
       // start ajax post request    
       $.post('location/', {longitude: $long, latitude: $lat}, function(json){
-        console.log(json);
+        var locations = jQuery.parseJSON(json);
+        if(locations.meta.code == "200") {
+          console.log("Status OK");
+          
+        }
+        else {
+          console.log("Looks like foursquare is having issues, please try again later.");
+        }
       });
       // end ajax call
     }
