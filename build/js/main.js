@@ -14,7 +14,7 @@ $(function(){
       console.log("Latitude: " + $lat); //DEBUG
 
       // start ajax post request    
-      $.post('location/get', {longitude: $long, latitude: $lat}, function(json){
+      $.post('location/', {longitude: $long, latitude: $lat}, function(json){
         var locations = jQuery.parseJSON(json);
         console.log(locations.meta);
       });

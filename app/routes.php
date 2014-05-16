@@ -19,7 +19,7 @@ Route::get('/', array(
 Route::get('/success', function()
 {
     return 'FTW';
-});Route::get('/dbtest', 'TestController@index');
+});
 Route::resource('/location', 'LocationController', 
 	array('only' => array('index', 'store'))
 	);

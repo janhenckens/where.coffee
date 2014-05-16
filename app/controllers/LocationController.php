@@ -4,7 +4,7 @@ class LocationController extends BaseController {
 
 	protected $layout = 'base';
 
-	public function get()
+	public function store()
 	{
 		if(Request::ajax()) {
 			/** Make file output JSON **/
