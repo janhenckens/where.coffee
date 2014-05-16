@@ -11,5 +11,15 @@
 |
 */
 
-Route::get('/', 'HomeController@index');
-Route::post('/location/get', 'LocationController@get');
+Route::get('/', array(
+	'as' => 'home',
+	'uses' => 'HomeController@index')
+);
+
+Route::get('/success', function()
+{
+    return 'FTW';
+});Route::get('/dbtest', 'TestController@index');
+Route::resource('/location', 'LocationController', 
+	array('only' => array('index', 'store'))
+	);
