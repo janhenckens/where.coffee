@@ -16,10 +16,13 @@ Route::get('/', array(
 	'uses' => 'HomeController@index')
 );
 
-Route::get('/success', function()
-{
-    return 'FTW';
-});
+Route::get('/success', array(
+ 						'as' => 'success',
+ 						function()
+							{
+								return 'FTW';
+							})
+						);
 Route::resource('/location', 'LocationController', 
 	array('only' => array('index', 'store'))
 	);
