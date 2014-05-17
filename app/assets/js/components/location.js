@@ -18,37 +18,21 @@ $(function(){
         var locations = jQuery.parseJSON(json);
         if(locations.meta.code == "200") {
           console.log("Status OK");
-          console.log(locations);
-
-
-
+          // console.log(locations);
           //Start maxbox stuff
           console.log("Start drawing the map");
           var map = L.mapbox.map('map', 'http://a.tiles.mapbox.com/v3/examples.map-0l53fhk2.json', {zoom: 15, center: [$lat, $long]});
+          var myLayer = L.mapbox.featureLayer().addTo(map);
           $.each(locations.response.groups[0].items, function() { 
                 var myIcon = L.icon({
                   title: this.venue.name
                 });
-                console.log(myIcon.options.title);
                 L.marker(
-                  [this.venue.location.lat, this.venue.location.lng],
-                  {title: myIcon.options.title}
-                  )
-                .addTo(map);
+                  [this.venue.location.lat, this.venue.location.lng],{
+                  title: this.venue.name,
+                  }).bindLabel(this.venue.name)
+                .addTo(myLayer);
             });
-          // for (var i = 0, l=locations.response.groups[0].items.length ;i < l; i++) 
-          // {
-          //   var myIcon = L.icon({
-          //     title: locations.response.groups[0].items[i].venue.name
-          //   });
-
-          //   L.marker(
-          //     [locations.response.groups[0].items[i].venue.location.lat, locations.response.groups[0].items[i].venue.location.lng],
-          //     {title: myIcon}
-          //     )
-          //   .addTo(map);
-          // }
-          // End map init
         }
         else {
           console.log("Looks like foursquare is having issues, please try again later.");
