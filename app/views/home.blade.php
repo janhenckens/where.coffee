@@ -1,5 +1,7 @@
 @section('content')
-<pre>This is the home.blade template.</pre>
+
+<div id="mapwrapper">
 <button id="getlocation">Get location!</button>
-<div id="location"></div>
+	<div id='map'></div>
+</div>
 @stop

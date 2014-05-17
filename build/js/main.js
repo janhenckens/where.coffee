@@ -18,7 +18,25 @@ $(function(){
         var locations = jQuery.parseJSON(json);
         if(locations.meta.code == "200") {
           console.log("Status OK");
-          
+          console.log(locations);
+          console.log(locations.response.groups[0].items[1].venue.name);
+
+          //Start maxbox stuff
+          console.log("Start drawing the map");
+          var map = L.mapbox.map('map', 'http://a.tiles.mapbox.com/v3/examples.map-0l53fhk2.json', {zoom: 15, center: [$lat, $long]});
+          for (var i = 0, l=locations.response.groups[0].items.length ;i < l; i++) 
+          {
+            var myIcon = L.icon({
+              title: locations.response.groups[0].items[i].venue.name
+            });
+
+            L.marker(
+              [locations.response.groups[0].items[i].venue.location.lat, locations.response.groups[0].items[i].venue.location.lng],
+              {title: myIcon}
+              )
+            .addTo(map);
+          }
+          // End map init
         }
         else {
           console.log("Looks like foursquare is having issues, please try again later.");
@@ -30,4 +48,7 @@ $(function(){
       console.log(position);
     }
   });
-});;
+});
+
+
+;
