@@ -16,7 +16,8 @@ $(function(){
       $.ajax({
         url: 'location',
         type: 'post',
-        datatype: 'jsonp',
+        datatype: 'json',
+        cache: 'false',
         data: {'latitude': $lat, 'longitude': $long},
         success: function(data) {
           var locations = jQuery.parseJSON(data);

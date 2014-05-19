@@ -17,7 +17,7 @@ class LocationController extends BaseController {
 			$lat = Input::get('latitude');
 			$location = $lat . "," . $long;
 			/** CURL to Foursquare to get the data based on the above mentioned $location **/
-			$url = "https://api.foursquare.com/v2/venues/explore?client_id=R1RAIUEMOV013YRFZQWIPLV404ELYNWBM4ILDDYAIQUUYLLK&client_secret=KN5PYBT3QWCXK5SY3X0IHQZTWIMNBVIUV3RZ53NKFENUX41U&v=20130815&ll=" . $location . "&query=coffee&limit=5";
+			$url = "https://api.foursquare.com/v2/venues/explore?client_id=R1RAIUEMOV013YRFZQWIPLV404ELYNWBM4ILDDYAIQUUYLLK&client_secret=KN5PYBT3QWCXK5SY3X0IHQZTWIMNBVIUV3RZ53NKFENUX41U&v=20130815&ll=" . $location . "&query=coffee";
 			$curl = curl_init();
 			curl_setopt_array($curl, 
 				array(
