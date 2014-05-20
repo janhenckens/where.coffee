@@ -1,7 +1,22 @@
+
 module.exports = function(grunt) {
     // 1. All configuration goes here
     grunt.initConfig({
         pkg: grunt.file.readJSON('package.json'),
+
+        //IMAGEMIN
+        imagemin: {                          // Task
+            dynamic: {  
+                      // Another target
+                files: [{
+                    expand: true,                  // Enable dynamic expansion
+                    cwd: 'img/',                   // Src matches are relative to this path
+                    src: ['**/*.{png,jpg,gif}'],   // Actual patterns to match
+                    dest: '../../public/assets/img/'                  // Destination path prefix
+                    }]
+                }
+            },
+
 
         // JSHINT
         jshint: {
@@ -84,6 +99,7 @@ module.exports = function(grunt) {
     require('load-grunt-tasks')(grunt);
     grunt.registerTask('default', ['build' , 'watch']);
     grunt.registerTask('css', ['sass' , 'cssmin']);
+    grunt.registerTask('img', ['imagemin']);
     grunt.registerTask('js', ['jshint' , 'concat' , 'uglify']);
-    grunt.registerTask('build', ['css' , 'js']);
+    grunt.registerTask('build', ['css' , 'js', 'img']);
 };

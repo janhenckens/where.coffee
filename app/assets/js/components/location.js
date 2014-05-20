@@ -20,6 +20,8 @@ $(function(){
         cache: 'false',
         data: {'latitude': $lat, 'longitude': $long},
         success: function(data) {
+          $('.container').fadeOut('slow');
+          $('.container').addClass('hidden');
           var locations = jQuery.parseJSON(data);
           console.log(locations.meta);
             if(locations.meta.code == "200") {
