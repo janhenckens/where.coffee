@@ -51,12 +51,12 @@ input[type="button"], input[type="submit"], input[type="reset"], input[type="fil
 	-moz-transition: all 0.3s;
 	transition: all 0.3s;
 	color: #fff;
+	border-radius: 3px;
+	margin-bottom: 10px;
+	margin-top: 10px;
+	overflow: hidden;
+	border: 3px solid #fff;
 	&.btn-location {
-		margin-bottom: 10px;
-		margin-top: 10px;
-		overflow: hidden;
-		border: 3px solid #fff;
-		border-radius: 3px;
 		&:disabled {
 			color: rgba(14, 131, 205, 0.3);
 		}
@@ -83,12 +83,8 @@ input[type="button"], input[type="submit"], input[type="reset"], input[type="fil
 	}
 	&.btn-small {
 		width: 48%;
-		float: left;
-		background-color: transparent;
-		color: #fff;
-		font-size: 1em;
-		border: 2px solid #fff;
-		border-radius: 3px;
+		height: 45px;
+		padding: 0px;
 		&.about {
 			float: left;
 		}

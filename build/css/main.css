@@ -50,13 +50,11 @@ input[type="button"], input[type="submit"], input[type="reset"], input[type="fil
   -moz-transition: all 0.3s;
   transition: all 0.3s;
   color: #fff;
-}
-.btn.btn-location, input.btn.btn-location {
+  border-radius: 3px;
   margin-bottom: 10px;
   margin-top: 10px;
   overflow: hidden;
   border: 3px solid #fff;
-  border-radius: 3px;
 }
 .btn.btn-location:disabled, input.btn.btn-location:disabled {
   color: rgba(14, 131, 205, 0.3);
@@ -83,12 +81,8 @@ input[type="button"], input[type="submit"], input[type="reset"], input[type="fil
 }
 .btn.btn-small, input.btn.btn-small {
   width: 48%;
-  float: left;
-  background-color: transparent;
-  color: #fff;
-  font-size: 1em;
-  border: 2px solid #fff;
-  border-radius: 3px;
+  height: 45px;
+  padding: 0px;
 }
 .btn.btn-small.about, input.btn.btn-small.about {
   float: left;
