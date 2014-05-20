@@ -1,4 +1,4 @@
-$(function(){
+$(document).ready(function() {
   $('#getlocation').on('click', function(e){
     console.log("Button Pressed (1)");
     $('#getlocation').attr("disabled", "disabled");
@@ -19,8 +19,10 @@ $(function(){
         type: 'post',
         datatype: 'json',
         cache: 'false',
-        data: {'latitude': $lat, 'longitude': $long},
-        success: function(data) {
+        data: {'latitude': $lat, 'longitude': $long}
+        })
+        .done(function(data) {
+
           $('.container').fadeOut('slow');
           $('.container').addClass('hidden');
           var locations = jQuery.parseJSON(data);
@@ -46,11 +48,7 @@ $(function(){
             else {
               console.log("Looks like foursquare is having issues, please try again later.");
             }
-        },
-        error: function(xhr, desc, err) {
-          console.log(xhr);
-          console.log("Details: " + desc + "\nError:" + err);
-        }
+
       }); 
       // end ajax call
     }
@@ -59,6 +57,5 @@ $(function(){
     }
   });
 });
-
 
 ;
