@@ -1,6 +1,8 @@
 <!doctype html>
 <html>
 <head>
+<link rel="apple-touch-icon" href="/assets/img/icon.png">
+<link rel="icon" href="/assets/img/favicon.png">
 	<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no' />
 	<title>where.coffee</title>
 	<link rel="stylesheet" type="text/css" href="/assets/css/main.min.css">
