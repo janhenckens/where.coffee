@@ -57,12 +57,21 @@ input[type="button"], input[type="submit"], input[type="reset"], input[type="fil
 		overflow: hidden;
 		border: 3px solid #fff;
 		border-radius: 3px;
+		&:disabled {
+			color: rgba(14, 131, 205, 0.3);
+		}
+		&::-webkit-input-placeholder {
+		   color: #fff;
+		}
 		&.search {
 			width: 79%;
 			color: #fff;
 			&:focus {
 				background-color: #fff;
 				color: #0e83cd;
+				&::-webkit-input-placeholder {
+				   color: #0e83cd;
+				}
 			}
 		}
 		&.searchsubmit {
@@ -116,4 +125,7 @@ input[type="button"], input[type="submit"], input[type="reset"], input[type="fil
 .btn-location:active:after {
 	height: 400%;
 	opacity: 1;
+	&:disabled {
+		background-color: red;
+	}
 }

@@ -1,6 +1,7 @@
 $(function(){
   $('#getlocation').on('click', function(e){
     console.log("Button Pressed (1)");
+    $('#getlocation').attr("disabled", "disabled");
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(success, error);
     } else {
