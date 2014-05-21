@@ -63,7 +63,7 @@ input[type="button"], input[type="submit"], input[type="reset"], input[type="fil
   color: #fff;
 }
 .btn.btn-primary.search, .btn.btn-secondary.search, input.btn.btn-primary.search, input.btn.btn-secondary.search {
-  width: 79%;
+  width: 73%;
   color: #fff;
 }
 .btn.btn-primary.search:focus, .btn.btn-secondary.search:focus, input.btn.btn-primary.search:focus, input.btn.btn-secondary.search:focus {
@@ -73,8 +73,8 @@ input[type="button"], input[type="submit"], input[type="reset"], input[type="fil
 .btn.btn-primary.search:focus::-webkit-input-placeholder, .btn.btn-secondary.search:focus::-webkit-input-placeholder, input.btn.btn-primary.search:focus::-webkit-input-placeholder, input.btn.btn-secondary.search:focus::-webkit-input-placeholder {
   color: #0e83cd;
 }
-.btn.btn-primary.searchsubmit, .btn.btn-secondary.searchsubmit, input.btn.btn-primary.searchsubmit, input.btn.btn-secondary.searchsubmit {
-  width: 19%;
+.btn.btn-primary.searchsubmit, .btn.btn-primaryinput[type=submit], .btn.btn-secondary.searchsubmit, .btn.btn-secondaryinput[type=submit], input.btn.btn-primary.searchsubmit, input.btn.btn-primaryinput[type=submit], input.btn.btn-secondary.searchsubmit, input.btn.btn-secondaryinput[type=submit] {
+  width: 25%;
   float: right;
   background-color: #fff;
   color: #0e83cd;

@@ -6,7 +6,7 @@
 			<img class="icon" src="../assets/img/icon_white.png" width="100px">
 			<button id="getlocation" class="btn btn-primary">Get location!</button>	
 			<form id="searchlocation">
-			<input  type="text" name="searchlocation" class="btn btn-secondary search" placeholder="search for location">
+			<input  type="text" name="searchlocation" class="btn btn-secondary search" placeholder="search...">
 			<input id="searchsubmit" class="btn btn-secondary searchsubmit" type="submit" value="go">
 			</form>
 			<button class="btn btn-small about">About</button>

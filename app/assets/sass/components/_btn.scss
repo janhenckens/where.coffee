@@ -62,7 +62,7 @@ input[type="button"], input[type="submit"], input[type="reset"], input[type="fil
 			color: #fff;
 		}
 		&.search {
-			width: 79%;
+			width: 73%;
 			color: #fff;
 			&:focus {
 				background-color: #fff;
@@ -72,8 +72,8 @@ input[type="button"], input[type="submit"], input[type="reset"], input[type="fil
 				}
 			}
 		}
-		&.searchsubmit {
-			width: 19%;
+		&.searchsubmit, &input[type=submit] {
+			width: 25%;
 			float: right;
 			background-color: #fff;
 			color: #0e83cd;
