@@ -26,3 +26,6 @@ Route::get('/success', array(
 Route::resource('/location', 'LocationController', 
 	array('only' => array('index', 'store'))
 	);
+Route::resource('/search', 'SearchController', 
+	array('only' => array('index', 'store'))
+	);

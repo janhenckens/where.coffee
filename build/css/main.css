@@ -95,6 +95,10 @@ input[type="button"], input[type="submit"], input[type="reset"], input[type="fil
   float: right;
 }
 
+.icon-gps, .icon-go {
+  color: #fff;
+}
+
 /* Button 1e */
 .btn-primary:after {
   width: 100%;
@@ -143,6 +147,7 @@ body {
   background-size: cover;
   box-sizing: border-box;
   z-index: 4;
+  color: #fff;
 }
 
 .container {

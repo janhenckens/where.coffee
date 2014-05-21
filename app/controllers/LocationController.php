@@ -10,6 +10,11 @@ class LocationController extends BaseController {
 	public function store()
 	{
 		if(Request::ajax()) {
+			// if (Input::get('location')) {
+			// 	$query = Input::get('location');
+			// 	return $query
+			// }
+
 			/** Make file output JSON **/
 			header('Content-Type: application/json');
 			/** Receive long and lat through ajax **/
