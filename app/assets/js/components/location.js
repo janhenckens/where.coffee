@@ -80,15 +80,12 @@ $('form').on('submit', function (e) {
               var map = L.mapbox.map('map', 'http://a.tiles.mapbox.com/v3/examples.map-0l53fhk2.json', {zoom: 15, center: [locations.response.geocode.center.lat, locations.response.geocode.center.lng]});
               var myLayer = L.mapbox.featureLayer().addTo(map);
               $.each(locations.response.groups[0].items, function() { 
-                    var myIcon = L.icon({
-                      title: this.venue.name
-                    });
-                    L.marker(
-                      [this.venue.location.lat, this.venue.location.lng],{
+                    var popupContent = '<h1>' + this.venue.name + '</h1>';
+                    console.log(popupContent);
+                    L.marker([this.venue.location.lat, this.venue.location.lng],{
                       title: this.venue.name,
-                      }).bindLabel(this.venue.name)
-                    .addTo(myLayer);
-                });
+                      }).addTo(map).bindPopup(popupContent);
+                    });
             }
             else {
               console.log("Looks like foursquare is having issues, please try again later.");
