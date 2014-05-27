@@ -21,6 +21,8 @@
 	<link href='https://api.tiles.mapbox.com/mapbox.js/v1.6.3/mapbox.css' rel='stylesheet' />
 </head>
 <body>
+// <?php echo $environment = App::environment(); ?>
+
 @yield('content')
 
 </body>
