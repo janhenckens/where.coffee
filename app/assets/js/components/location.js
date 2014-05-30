@@ -35,7 +35,7 @@ $(document).ready(function() {
               map = L.mapbox.map('map', 'http://a.tiles.mapbox.com/v3/examples.map-0l53fhk2.json', {zoom: 15, center: [$lat, $long]});
               var myLayer = L.mapbox.featureLayer().addTo(map);
               $.each(locations.response.groups[0].items, function() { 
-                    var popupContent = '<h1>' + this.venue.name + '</h1>';
+                var popupContent = '<H2><a href="' + this.venue.url + '">' + this.venue.name + '</a></H2>';
                     console.log(popupContent);
                     L.marker([this.venue.location.lat, this.venue.location.lng],{
                       title: this.venue.name,
@@ -80,7 +80,7 @@ $('form').on('submit', function (e) {
               var map = L.mapbox.map('map', 'http://a.tiles.mapbox.com/v3/examples.map-0l53fhk2.json', {zoom: 15, center: [locations.response.geocode.center.lat, locations.response.geocode.center.lng]});
               var myLayer = L.mapbox.featureLayer().addTo(map);
               $.each(locations.response.groups[0].items, function() { 
-                    var popupContent = '<h1>' + this.venue.name + '</h1>';
+                    var popupContent = '<H2><a href="' + this.venue.url + '">' + this.venue.name + '</a></H2>';
                     console.log(popupContent);
                     L.marker([this.venue.location.lat, this.venue.location.lng],{
                       title: this.venue.name,
