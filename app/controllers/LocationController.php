@@ -9,20 +9,17 @@ class LocationController extends BaseController {
 	}
 	public function store()
 	{
-		if(Request::ajax()) {
-			// if (Input::get('location')) {
-			// 	$query = Input::get('location');
-			// 	return $query
-			// }
+			$location = new Location();
+			$location->latitude = Input::get('latitude');
+			$location->longitude = Input::get('longitude');
 
-			/** Make file output JSON **/
-			header('Content-Type: application/json');
+
 			/** Receive long and lat through ajax **/
 			$long = Input::get('longitude');
 			$lat = Input::get('latitude');
-			$location = $lat . "," . $long;
-			/** CURL to Foursquare to get the data based on the above mentioned $location **/
-			$url = "https://api.foursquare.com/v2/venues/explore?client_id=R1RAIUEMOV013YRFZQWIPLV404ELYNWBM4ILDDYAIQUUYLLK&client_secret=KN5PYBT3QWCXK5SY3X0IHQZTWIMNBVIUV3RZ53NKFENUX41U&v=20130815&ll=" . $location . "&query=coffee";
+			$query = $lat . "," . $long;
+			/** CURL to Foursquare to get the data based on the above mentioned $query **/
+			$url = "https://api.foursquare.com/v2/venues/explore?client_id=R1RAIUEMOV013YRFZQWIPLV404ELYNWBM4ILDDYAIQUUYLLK&client_secret=KN5PYBT3QWCXK5SY3X0IHQZTWIMNBVIUV3RZ53NKFENUX41U&v=20130815&ll=" . $query . "&query=coffee";
 			$curl = curl_init();
 			curl_setopt_array($curl, 
 				array(
@@ -30,8 +27,10 @@ class LocationController extends BaseController {
 					CURLOPT_URL => $url
 					));
 			$result = curl_exec($curl);
-			return $result;
 			curl_close($curl);
-		}
+			$location->json = $result;
+			$location->save();
+			return $result;
+
 	}
 }
