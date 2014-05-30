@@ -26,7 +26,6 @@ $(document).ready(function() {
           $('.container').addClass('hidden');
           var locations = jQuery.parseJSON(data);
           console.log(locations.meta);
-          console.log(locations);
             if(locations.meta.code == "200") {
               console.log("Status OK");
               // console.log(locations);
@@ -36,11 +35,20 @@ $(document).ready(function() {
               var myLayer = L.mapbox.featureLayer().addTo(map);
               $.each(locations.response.groups[0].items, function() { 
                 var popupContent = '<H2><a href="' + this.venue.url + '">' + this.venue.name + '</a></H2>';
-                    console.log(popupContent);
                     L.marker([this.venue.location.lat, this.venue.location.lng],{
                       title: this.venue.name,
                       }).addTo(map).bindPopup(popupContent);
                 });
+
+              var myLocation = L.icon({
+                iconUrl: '/assets/img/yourlocation.png',
+                iconRetinaUrl: 'my-icon@2x.png',
+                iconSize: [35, 95],
+                popupAnchor: [0,-37],
+              });
+              var mylocationContent = '<H2>You are here</H2>';
+              L.marker([$lat, $long], {icon: myLocation}).addTo(map).bindPopup(mylocationContent);
+
             }
             else {
               console.log("Looks like foursquare is having issues, please try again later.");
@@ -81,7 +89,6 @@ $('form').on('submit', function (e) {
               var myLayer = L.mapbox.featureLayer().addTo(map);
               $.each(locations.response.groups[0].items, function() { 
                     var popupContent = '<H2><a href="' + this.venue.url + '">' + this.venue.name + '</a></H2>';
-                    console.log(popupContent);
                     L.marker([this.venue.location.lat, this.venue.location.lng],{
                       title: this.venue.name,
                       }).addTo(map).bindPopup(popupContent);
