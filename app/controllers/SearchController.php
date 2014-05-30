@@ -21,6 +21,10 @@ class SearchController extends \BaseController {
 	public function store()
 	{
 		if(Request::ajax()) {
+			$location = new Location();
+			$location->latitude = Input::get('latitude');
+			$location->longitude = Input::get('longitude');
+			$location->request_type = camel_case('search');
 			/** Make file output JSON **/
 			header('Content-Type: application/json');
 			/** Receive long and lat through ajax **/
@@ -34,8 +38,10 @@ class SearchController extends \BaseController {
 					CURLOPT_URL => $url
 					));
 			$result = curl_exec($curl);
-			return $result;
 			curl_close($curl);
+			$location->json = $result;
+			$location->save();
+			return $result;
 		}	}
 
 

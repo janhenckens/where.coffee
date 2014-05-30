@@ -12,6 +12,7 @@ class LocationController extends BaseController {
 			$location = new Location();
 			$location->latitude = Input::get('latitude');
 			$location->longitude = Input::get('longitude');
+			$location->request_type = camel_case('geolocation');
 
 
 			/** Receive long and lat through ajax **/
