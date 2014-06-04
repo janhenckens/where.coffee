@@ -34,7 +34,8 @@ $(document).ready(function() {
               map = L.mapbox.map('map', 'http://a.tiles.mapbox.com/v3/examples.map-0l53fhk2.json', {zoom: 15, center: [$lat, $long]});
               var myLayer = L.mapbox.featureLayer().addTo(map);
               $.each(locations.response.groups[0].items, function() { 
-                var popupContent = '<H2><a href="' + this.venue.url + '">' + this.venue.name + '</a></H2>';
+                var popupContent =
+                '<H2>' + this.venue.name + '</H2><br>' + this.venue.location.address + '<br>' + this.venue.location.postalCode + ' ' + this.venue.location.city;
                     L.marker([this.venue.location.lat, this.venue.location.lng],{
                       title: this.venue.name,
                       }).addTo(map).bindPopup(popupContent);
