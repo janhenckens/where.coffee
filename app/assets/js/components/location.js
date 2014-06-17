@@ -63,44 +63,41 @@ $(document).ready(function() {
     }
   });
 
-$('form').on('submit', function (e) {
-          e.preventDefault();
-          var $location =  $('input[name=searchlocation]').val();
-            console.log($location);
-          $.ajax({
-            type: 'post',
-            url: 'search',
-            data: {'location': $location},
-            success: function () {
-              console.log('form was submitted');
-            }
-          })
-          .done(function(data) {
-            $('.container').fadeOut('slow');
-            $('.container').addClass('hidden');
-            var locations = jQuery.parseJSON(data);
-            console.log(locations);
-            console.log(locations.response.geocode.center.lat);
-            if(locations.meta.code == "200") {
-              console.log("Status OK");
-              // console.log(locations);
-              //Start maxbox stuff
-              console.log("Start drawing the map");
-              var map = L.mapbox.map('map', 'http://a.tiles.mapbox.com/v3/examples.map-0l53fhk2.json', {zoom: 15, center: [locations.response.geocode.center.lat, locations.response.geocode.center.lng]});
-              var myLayer = L.mapbox.featureLayer().addTo(map);
-              $.each(locations.response.groups[0].items, function() { 
-                    var popupContent = '<H2><a href="' + this.venue.url + '">' + this.venue.name + '</a></H2>';
-                    L.marker([this.venue.location.lat, this.venue.location.lng],{
-                      title: this.venue.name,
-                      }).addTo(map).bindPopup(popupContent);
-                    });
-            }
-            else {
-              console.log("Looks like foursquare is having issues, please try again later.");
-            }
+    $('form').on('submit', function (e) {
+              e.preventDefault();
+              var $location =  $('input[name=searchlocation]').val();
+                console.log($location);
+              $.ajax({
+                type: 'post',
+                url: 'search',
+                data: {'location': $location},
+                success: function () {
+                }
+              })
+              .done(function(data) {
+                $('.container').fadeOut('slow');
+                $('.container').addClass('hidden');
+                var locations = jQuery.parseJSON(data);
+                console.log(locations.meta.code);
+                if (locations.meta.code == "200") {
+                  console.log(locations.meta.code);
+                  console.log("Start drawing the map");
+                  var map = L.mapbox.map('map', 'http://a.tiles.mapbox.com/v3/examples.map-0l53fhk2.json', {zoom: 15, center: [locations.response.geocode.center.lat, locations.response.geocode.center.lng]});
+                  var myLayer = L.mapbox.featureLayer().addTo(map);
+                  $.each(locations.response.groups[0].items, function() { 
+                        var popupContent = '<H2><a href="' + this.venue.url + '">' + this.venue.name + '</a></H2>';
+                        L.marker([this.venue.location.lat, this.venue.location.lng],{
+                          title: this.venue.name,
+                          }).addTo(map).bindPopup(popupContent);
+                        });
+                }
+                else {
+                console.log(locations.meta.code);
+                alert("Looks like the location you searched for could not be found, please try again.");
+                $('input[name=searchlocation]').val();
+                $('.container').removeClass('hidden').fadeIn('slow');
+                }
+                });
             });
-
-   
-  });
 });
 

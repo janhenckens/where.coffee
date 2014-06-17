@@ -44,6 +44,21 @@ body {
 	display: none;
 }
 
+.refresh {
+	width: 25px;
+	height: 25px;
+	background: #fff;
+	position: absolute;
+	right: 0;
+	top: 0;
+	margin: 10px;
+	display: none;
+	&.show {
+		z-index: 100;
+		display: block;
+	}
+}
+
 @media all and (max-width: 600px)  {
   body {
     background: #0e83cd;

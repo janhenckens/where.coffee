@@ -101,5 +101,5 @@ module.exports = function(grunt) {
     grunt.registerTask('css', ['sass' , 'cssmin']);
     grunt.registerTask('img', ['imagemin']);
     grunt.registerTask('js', ['jshint' , 'concat' , 'uglify']);
-    grunt.registerTask('build', ['css' , 'js', 'img']);
+    grunt.registerTask('build', ['css' , 'js']);
 };
