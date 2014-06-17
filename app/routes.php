@@ -11,7 +11,21 @@
 |
 */
 
-Route::get('/', function()
-{
-	return View::make('hello');
-});
+Route::get('/', array(
+	'as' => 'home',
+	'uses' => 'HomeController@index')
+);
+
+Route::get('/success', array(
+ 						'as' => 'success',
+ 						function()
+							{
+								return 'FTW';
+							})
+						);
+Route::resource('/location', 'LocationController', 
+	array('only' => array('index', 'store'))
+	);
+Route::resource('/search', 'SearchController', 
+	array('only' => array('index', 'store'))
+	);

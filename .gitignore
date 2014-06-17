@@ -1,8 +1,13 @@
 /bootstrap/compiled.php
 /vendor
+/app/assets/node_modules
 composer.phar
 composer.lock
 .env.local.php
 .env.php
 .DS_Store
 Thumbs.db
+/node_modules
+/tmp
+/app/assets/.sass-cache
+/app/storage/*

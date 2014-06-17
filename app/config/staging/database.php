@@ -48,9 +48,9 @@ return array(
 		'mysql' => array(
 			'driver'    => 'mysql',
 			'host'      => '127.0.0.1',
-			'database'  => 'where_coffee_dev',
-			'username'  => 'root',
-			'password'  => 'root',
+			'database'  => 'where_coffee_staging',
+			'username'  => 'monty',
+			'password'  => 'python',
 			'charset'   => 'utf8',
 			'collation' => 'utf8_unicode_ci',
 			'prefix'    => '',
