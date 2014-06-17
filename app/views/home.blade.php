@@ -9,8 +9,7 @@
 			<input  type="text" name="searchlocation" class="btn btn-secondary search" placeholder="search...">
 			<input id="searchsubmit" class="btn btn-secondary searchsubmit" type="submit" value="go">
 			</form>
-			<button class="btn btn-small about">About</button>
-			<a href="http://newsletter.onedge.be/h/i/9B066A5DDB877BA1"><button class="btn btn-small newsletter">Newsletter</button></a>
+			<a href="http://newsletter.onedge.be/h/i/9B066A5DDB877BA1"><button class="btn newsletter">Newsletter</button></a>
 <!-- 			<img src="../assets/img/foursquare.png">
  -->		</div>
 	</div>
