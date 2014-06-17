@@ -13,7 +13,8 @@
 			<a href="http://newsletter.onedge.be/h/i/9B066A5DDB877BA1"><button class="btn btn-small newsletter">Newsletter</button></a>
 <!-- 			<img src="../assets/img/foursquare.png">
  -->		</div>
-
 	</div>
+	 			<a href="/"><div class="refresh"></div></a>
+
 </div>
 @stop
