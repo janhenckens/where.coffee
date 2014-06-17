@@ -28,7 +28,7 @@ $env = $app->detectEnvironment(array(
 
 	'local' => array('Jans-MacBook-Air.local'),
 	'staging' => array('wherecoffee-web-staging'),
-	'production' => array('wherecoffee-web-prod-01')
+	'production' => array('wherecoffee-web')
 
 ));
 
