@@ -26,7 +26,7 @@ $app = new Illuminate\Foundation\Application;
 
 $env = $app->detectEnvironment(array(
 
-	'local' => array('Jans-MacBook-Air.local'),
+	'local' => array('vagrant-local'),
 	'staging' => array('wherecoffee-web-staging'),
 	'production' => array('wherecoffee-web')
 

@@ -36,7 +36,7 @@ $(document).ready(function() {
 
               var myLocation = L.icon({
                 iconUrl: '/assets/img/yourlocation.png',
-                iconRetinaUrl: 'my-icon@2x.png',
+                iconRetinaUrl: '/assets/img/yourlocation@2.png',
                 iconSize: [35, 95],
                 popupAnchor: [0,-37],
               });
