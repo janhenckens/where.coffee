@@ -33,10 +33,11 @@ $(document).ready(function() {
                   title: this.venue.name,
                 }).addTo(map).bindPopup(popupContent);
               });
+            $('.refresh').addClass('show');
 
               var myLocation = L.icon({
                 iconUrl: '/assets/img/yourlocation.png',
-                iconRetinaUrl: '/assets/img/yourlocation.png',
+                iconRetinaUrl: '/assets/img/yourlocation@2.png',
                 iconSize: [35, 95],
                 popupAnchor: [0,-37],
               });
