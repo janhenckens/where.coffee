@@ -47,10 +47,10 @@ return array(
 	'connections' => array(
 		'mysql' => array(
 			'driver'    => 'mysql',
-			'host'      => '127.0.0.1',
-			'database'  => 'where_coffee_prod',
-			'username'  => 'monty',
-			'password'  => 'python',
+			'host'      => 'localhost',
+			'database'  => 'janhenck_wherecoffee',
+			'username'  => 'janhenck_wherec',
+			'password'  => 'TVtMoMdYK63sLs',
 			'charset'   => 'utf8',
 			'collation' => 'utf8_unicode_ci',
 			'prefix'    => '',
