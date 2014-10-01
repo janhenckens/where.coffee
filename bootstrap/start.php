@@ -27,8 +27,7 @@ $app = new Illuminate\Foundation\Application;
 $env = $app->detectEnvironment(array(
 
 	'local' => array('vagrant-local'),
-	'staging' => array('wherecoffee-web-staging'),
-	'production' => array('wherecoffee-web')
+	'production' => array('serv01.am12.siteground.biz')
 
 ));
 
