@@ -18,6 +18,8 @@
         ga('send', 'pageview');
 
     </script>
-    @yield('content')
+        <div class="container">
+            @yield('content')
+        </div>
     </body>
 </html>
