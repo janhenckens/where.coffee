@@ -14,9 +14,9 @@
     <link rel="apple-touch-icon" sizes="152x152" href="/assets/img/apple-touch-icon-152x152.png" />
     <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no' />
     <title>where.coffee</title>
-    <link rel="stylesheet" type="text/css" href="/css/app.css">
+    <link rel="stylesheet" type="text/css" href="{{ elixir('css/app.css') }}">
     <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-    <script type="text/javascript" src="/assets/js/main.min.js"></script>
+    <script type="text/javascript" src="{{ elixir('js/app.js') }}"></script>
 </head>
 <body>
 <script>
