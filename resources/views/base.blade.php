@@ -6,6 +6,8 @@
         <link rel="stylesheet" type="text/css" href="{{ elixir('css/app.css') }}">
         <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
         <script type="text/javascript" src="{{ elixir('js/app.js') }}"></script>
+        <meta name="csrf-token" content="<?php echo csrf_token() ?>" />
+
     </head>
     <body>
     <script>

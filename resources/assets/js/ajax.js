@@ -1,4 +1,3 @@
-
 $(document).ready(function() {
     $('form#query').on('submit', function (e) {
         e.preventDefault();
@@ -20,5 +19,3 @@ $(document).ready(function() {
         })
     });
 });
-
-//# sourceMappingURL=app.js.map
