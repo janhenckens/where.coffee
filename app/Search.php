@@ -10,7 +10,8 @@ class Search extends Model
         'longitude',
         'latitude',
         'json',
-        'request_type'
+        'request_type',
+        'searchquery'
     ];
 
 }
