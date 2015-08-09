@@ -6,7 +6,6 @@ use App\Http\Controllers\Controller;
 use Guzzle\Http\Client as Client;
 use Illuminate\Support\Facades\Config;
 
-
 class FoursquareController extends Controller {
 
     protected $FSQ_CLIENT_ID;
@@ -23,18 +22,11 @@ class FoursquareController extends Controller {
 
         $FSQ_CLIENT_ID = $this->env->findEnvironmentVariable('FSQ_CLIENT_ID');
         $FSQ_CLIENT_SECRET = $this->env->findEnvironmentVariable('FSQ_CLIENT_SECRET');
-        $FSQ_API = 'https://api.foursquare.com/v2';
+        $FSQ_API = 'https://api.foursquare.com';
         $url = 'v2/venues/explore';
-        $settings = array(
-            'near' => $query,
-            'client_id' => $FSQ_CLIENT_ID,
-            'client_secret' => $FSQ_CLIENT_SECRET,
-            'v' => '20130815',
-            'query' => 'coffee'
-        );
 
         // Create a client and provide a base URL
-        $client = new Client('https://api.foursquare.com/');
+        $client = new Client($FSQ_API);
         // Create a request with basic Auth
         $client = $client->get($url);
         $client->getQuery()->set('near', $query);
@@ -42,14 +34,23 @@ class FoursquareController extends Controller {
         $client->getQuery()->set('client_secret', $FSQ_CLIENT_SECRET);
         $client->getQuery()->set('v', 20130815);
         $client->getQuery()->set('querry', 'coffee');
+
         // Send the request and get the response$
         $response = $client->send();
-        echo $response->getBody();
-        echo $response->getHeader('Content-Length');
-        exit;
+        $data = $response->json();
+
+        // Bail out of get back anything but data
+        if($data['meta']['code'] != 200) {
+            return 'Looks like something went wrong';
+        }
+        $result = $this->parseResults($data['response']['groups']['0']['items']);
+
     }
 
     public function searchCoordinates($lat, $long) {
 
+    }
+
+    private function parseResults($data) {
     }
 }
