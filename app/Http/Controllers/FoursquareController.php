@@ -58,10 +58,14 @@ class FoursquareController extends Controller {
         $results['status'] = $data['meta']['code'];
         $results['center']['lat'] = $data['response']['geocode']['center']['lat'];
         $results['center']['lng'] = $data['response']['geocode']['center']['lng'];
+        $results['venues'] = array();
         $i = 1;
         foreach($locations as $location) {
             $results['venues'][$i]['id'] = $location['venue']['id'];
             $results['venues'][$i]['name'] = $location['venue']['name'];
+            $results['venues'][$i]['lat'] = $location['venue']['location']['lat'];
+            $results['venues'][$i]['lng'] = $location['venue']['location']['lng'];
+
             $i++;
         }
 
