@@ -1,4 +1,25 @@
 // @import "node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
+
 body {
-  background-color: none;
+  margin: 0 auto;
+  font-size: 16px;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  box-sizing: border-box;
+  z-index: 4;
+  color: #fff;
+}
+
+#form {z-index: 3;}
+form{
+  z-index: 2;}
+#map {
+  position:absolute;
+  top:0;
+  bottom:0;
+  width:100%;
+  z-index: 99;
+  display: none;
 }

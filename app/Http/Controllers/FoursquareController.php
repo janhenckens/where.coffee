@@ -43,8 +43,8 @@ class FoursquareController extends Controller {
         if($data['meta']['code'] != 200) {
             return 'Looks like something went wrong';
         }
-        $result = $this->parseResults($data['response']['groups']['0']['items']);
-        return $result;
+        $results = $this->parseResults($data);
+        return $results;
 
     }
 
@@ -53,7 +53,19 @@ class FoursquareController extends Controller {
     }
 
     private function parseResults($data) {
-        return $data;
+        $results = array();
+        $locations = $data['response']['groups']['0']['items'];
+        $results['status'] = $data['meta']['code'];
+        $results['center']['lat'] = $data['response']['geocode']['center']['lat'];
+        $results['center']['lng'] = $data['response']['geocode']['center']['lng'];
+        $i = 1;
+        foreach($locations as $location) {
+            $results['venues'][$i]['id'] = $location['venue']['id'];
+            $results['venues'][$i]['name'] = $location['venue']['name'];
+            $i++;
+        }
+
+        return $results;
 
     }
 }

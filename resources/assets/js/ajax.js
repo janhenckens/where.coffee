@@ -9,13 +9,20 @@ $(document).ready(function() {
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
             }
         });
-        $.ajax({
+        var request = $.ajax({
             type: 'post',
             url: url,
             data: {'searchlocation': $location, 'request_type': $request_type},
-            success: function (data) {
-                console.log(data);
+            success:  function(){
+                $('#form').fadeOut('slow').addClass('hidden');
             }
         })
+        request.done(function(data) {
+            var locations = jQuery.parseJSON(data);
+            $('#map').fadeIn('slow').show();
+            L.mapbox.accessToken = 'pk.eyJ1IjoiamFuaGVuY2tlbnMiLCJhIjoiZGEwM2Q4OTdkNzllMDBiNWI5NjQ4MDRkNzg5YjVhZTcifQ';
+            L.mapbox.map('map', 'janhenckens.i204n3ak').setView([locations.center.lat, locations.center.lng], 9);
+
+        });
     });
 });
