@@ -15,6 +15,7 @@ class SearchController extends Controller {
     public function store() {
         $input = Request::all();
         Search::create(['searchquery' => $input['searchlocation' ], 'request_type' => $input['request_type']]);
-        $this->foursquare->searchCity($input['searchlocation']);
+        $result = $this->foursquare->searchCity($input['searchlocation']);
+        return $result;
     }
 }

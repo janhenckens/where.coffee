@@ -44,6 +44,7 @@ class FoursquareController extends Controller {
             return 'Looks like something went wrong';
         }
         $result = $this->parseResults($data['response']['groups']['0']['items']);
+        return $result;
 
     }
 
@@ -52,5 +53,7 @@ class FoursquareController extends Controller {
     }
 
     private function parseResults($data) {
+        return $data;
+
     }
 }
