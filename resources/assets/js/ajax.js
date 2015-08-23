@@ -20,9 +20,8 @@ $(document).ready(function() {
         request.done(function(data) {
             var locations = jQuery.parseJSON(data);
             $('#map').fadeIn('slow').show();
-            L.mapbox.accessToken = 'pk.eyJ1IjoiamFuaGVuY2tlbnMiLCJhIjoiZGEwM2Q4OTdkNzllMDBiNWI5NjQ4MDRkNzg5YjVhZTcifQ';
-            L.mapbox.map('map', 'janhenckens.i204n3ak').setView([locations.center.lat, locations.center.lng], 9);
-
+            L.mapbox.accessToken = 'pk.eyJ1IjoiamFuaGVuY2tlbnMiLCJhIjoiMzc2NDI5MDE1ZWI5NzZlOTBmZjNmMWQxMTgxNmQ4ZGMifQ.0MzXVdyyPn7Xt5qnmp2KbQ';
+            var map = L.mapbox.map('map', 'janhenckens.i204n3ak').setView([locations.center.lat, locations.center.lng], 15);
         });
     });
 });
