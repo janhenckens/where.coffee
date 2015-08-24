@@ -46,7 +46,7 @@ $(document).ready(function() {
             url: url,
             data: {'searchlocation': $location, 'request_type': $request_type},
             success:  function(){
-                $('#form').fadeOut('slow').addClass('hidden');
+                $('.panel').fadeOut('slow').addClass('hidden');
             }
         })
         request.done(function(data) {

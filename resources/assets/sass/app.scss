@@ -13,25 +13,27 @@ body {
   background: url(../../img/bg2.jpg) no-repeat center center fixed;
 }
 
-.btn{
-  -webkit-border-radius: 0;
-  -moz-border-radius:    0;
-  border-radius:         0;
-  background: transparent;
-  color: #F2F2F2;
-
-  /* CSS Transition */
-  -webkit-transition: background .2s ease-in-out, border .2s ease-in-out;
-  -moz-transition: background .2s ease-in-out, border .2s ease-in-out;
-  -ms-transition: background .2s ease-in-out, border .2s ease-in-out;
-  -o-transition: background .2s ease-in-out, border .2s ease-in-out;
-  transition: background .2s ease-in-out, border .2s ease-in-out;
-
+.container {
+  margin: 0 auto;
+  max-width: 400px;
+  .panel {
+    background-color: #0e83cd;
+    display: inline-block;
+    z-index: 3;
+    float: left;
+    padding: 20px;
+    position: relative;
+    border-radius: 3px;
+    bottom: -200px;
+    color: #0e83cd;
+    .icon {
+      margin: 0 auto;
+      left: 36%;
+      position: relative;
+    }
+  }
 }
 
-#form {z-index: 3;}
-form{
-  z-index: 2;}
 #map {
   position:absolute;
   top:0;
