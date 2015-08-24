@@ -2,6 +2,8 @@
 
 @section('content')
     <div id='map'></div>
+    <nav id='filters' class='filter-ui'></nav>
+
     <div id="form">
         <div class="container">
         {!! Form::open(['id' => 'getlocation']) !!}

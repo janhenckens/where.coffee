@@ -33,6 +33,7 @@ $(document).ready(function() {
             $.each(locations.venues, function() {
                 console.log(this.lat);
                 console.log(this.name);
+                var markerContent = '<h2>' + this.name + '</h2>';
                 L.marker([this.lat, this.lng], {
                     icon: L.mapbox.marker.icon({
                         'marker-color': '#BE9A6B',
@@ -41,7 +42,7 @@ $(document).ready(function() {
                     })
                 },{
                     title: this.name,
-                }).addTo(map);
+                }).addTo(map).bindPopup(markerContent);
             })
 
 

@@ -18,4 +18,6 @@ elixir(function(mix) {
             'public/css/app.css',
             'public/js/app.js'
         ]);
+    mix.copy('resources/assets/img', 'public/img');
+
 });
