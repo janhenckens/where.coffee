@@ -24,7 +24,7 @@ class SearchController extends Controller {
             'request_type' => $input['request_type']
         );
 
-        if($input['request_type'] = 'geo') {
+        if($input['request_type'] === 'geo') {
             $data['latitude'] = $input['lat'];
             $data['longitude'] = $input['lng'];
         };
