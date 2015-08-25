@@ -19,7 +19,17 @@ class SearchController extends Controller {
 
     public function store() {
         $input = Request::all();
-        Search::create(['searchquery' => $input['searchlocation' ], 'request_type' => $input['request_type']]);
+        $data = array(
+            'searchquery' => $input['searchlocation' ],
+            'request_type' => $input['request_type']
+        );
+
+        if($input['request_type'] = 'geo') {
+            $data['latitude'] = $input['lat'];
+            $data['longitude'] = $input['lng'];
+        };
+
+        Search::create($data);
         $result = $this->foursquare->searchCity($input['searchlocation']);
         echo json_encode($result);
     }

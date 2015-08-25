@@ -9,6 +9,7 @@ $(document).ready(function() {
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
             }
         });
+
         var request = $.ajax({
             type: 'post',
             url: url,
@@ -17,6 +18,8 @@ $(document).ready(function() {
                 $('.panel').fadeOut('slow').addClass('hidden');
             }
         })
+
+
         request.done(function(data) {
             var locations = jQuery.parseJSON(data);
             $('#map').fadeIn('slow').show();
@@ -46,8 +49,41 @@ $(document).ready(function() {
             })
 
 
-            //var mylocationContent = '<H2>You are here</H2>';
-            //L.marker([locations.center.lat, locations.center.lng], {icon: myLocation}).addTo(map).bindPopup(mylocationContent);
+
         });
     });
+    $('#getlocation').on('click', function(e){
+        e.preventDefault();
+        $('#getlocation').attr("disabled", "disabled");
+        navigator.geolocation.getCurrentPosition(success, error);
+    });
+    function success(position) {
+        console.log("Location found (2)");
+        var $lng = position.coords.longitude;
+        var $lat = position.coords.latitude;
+        var $location = $lat + ',' + $lng;
+        var $url = '/search';
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
+
+        $.ajax({
+            type: 'post',
+            url: $url,
+            data: {'lat': $lat, 'lng': $lng, 'searchlocation': $location, 'request_type' : 'geo'},
+            success: function (data) {
+                console.log(data);
+                $('.panel').fadeOut('slow').addClass('hidden');
+
+            }
+        })
+        //var mylocationContent = '<H2>You are here</H2>';
+        //L.marker([locations.center.lat, locations.center.lng], {icon: myLocation}).addTo(map).bindPopup(mylocationContent);
+
+    }
+    function error(position) {
+        console.log('location not found');
+    }
 });
