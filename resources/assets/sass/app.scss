@@ -1,8 +1,7 @@
-// @import "node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
-
 body {
   margin: 0 auto;
   font-size: 16px;
+  font-family: Verdana, sans-serif;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -15,8 +14,9 @@ body {
 
 .container {
   margin: 0 auto;
-  max-width: 400px;
+  max-width: 450px;
   .panel {
+    width: 100%;
     background-color: #0e83cd;
     display: inline-block;
     z-index: 3;
@@ -25,14 +25,31 @@ body {
     position: relative;
     border-radius: 3px;
     bottom: -200px;
-    color: #0e83cd;
     .icon {
       margin: 0 auto;
       left: 36%;
       position: relative;
+      margin-bottom: 10px;
     }
   }
 }
+
+.btn {
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  border-radius: 0;
+  display: inline-block;
+  background: none;
+  border: 3px solid #fff;
+  color: #fff;
+}
+
+form#city {
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  border-radius: 0;
+}
+
 
 #map {
   position:absolute;
@@ -41,4 +58,14 @@ body {
   width:100%;
   z-index: 99;
   display: none;
+}
+
+@media all and (max-width: 600px) {
+  body {
+    background: #0e83cd;
+  }
+
+  .container .panel {
+    bottom: 0;
+  }
 }
