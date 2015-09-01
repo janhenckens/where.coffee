@@ -14,4 +14,5 @@
 Route::get('/', function () {
     return view('welcome');
 });
-Route::post('/search', 'SearchController@store');
+Route::post('/search', 'SearchController@search');
+Route::post('/geo', 'SearchController@geo');

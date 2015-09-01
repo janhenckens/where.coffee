@@ -17,7 +17,7 @@ class SearchController extends Controller {
 
     }
 
-    public function store() {
+    public function search() {
         $input = Request::all();
         $data = array(
             'searchquery' => $input['searchlocation' ],
@@ -30,7 +30,25 @@ class SearchController extends Controller {
         };
 
         Search::create($data);
-        $result = $this->foursquare->searchCity($input['searchlocation']);
+        $result = $this->foursquare->searchCity($input['searchlocation'], $input['request_type']);
+        echo json_encode($result);
+    }
+
+    public function geo() {
+        $input = Request::all();
+
+        $data = array(
+            'searchquery' => $input['searchlocation' ],
+            'request_type' => $input['request_type']
+        );
+
+        if($input['request_type'] === 'geo') {
+            $data['latitude'] = $input['lat'];
+            $data['longitude'] = $input['lng'];
+        };
+
+        Search::create($data);
+        $result = $this->foursquare->searchCity($input['searchlocation'], $input['request_type']);
         echo json_encode($result);
     }
 }

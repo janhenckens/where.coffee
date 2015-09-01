@@ -18,8 +18,7 @@ class FoursquareController extends Controller {
 
     }
 
-    public function searchCity($query) {
-
+    public function searchCity($query, $request_type) {
         $FSQ_CLIENT_ID = $this->env->findEnvironmentVariable('FSQ_CLIENT_ID');
         $FSQ_CLIENT_SECRET = $this->env->findEnvironmentVariable('FSQ_CLIENT_SECRET');
         $FSQ_API = 'https://api.foursquare.com';
@@ -29,11 +28,17 @@ class FoursquareController extends Controller {
         $client = new Client($FSQ_API);
         // Create a request with basic Auth
         $client = $client->get($url);
-        $client->getQuery()->set('near', $query);
         $client->getQuery()->set('client_id', $FSQ_CLIENT_ID);
         $client->getQuery()->set('client_secret', $FSQ_CLIENT_SECRET);
         $client->getQuery()->set('v', 20130815);
         $client->getQuery()->set('querry', 'coffee');
+        $client->getQuery()->set('limit', '10');
+        if($request_type === "location") {
+            $client->getQuery()->set('near', $query);
+        }
+        if($request_type === "geo") {
+            $client->getQuery()->set('ll', $query);
+        }
 
         // Send the request and get the response$
         $response = $client->send();
@@ -43,7 +48,7 @@ class FoursquareController extends Controller {
         if($data['meta']['code'] != 200) {
             return 'Looks like something went wrong';
         }
-        $results = $this->parseResults($data);
+        $results = $this->parseResults($data, $query, $request_type);
         return $results;
 
     }
@@ -52,12 +57,19 @@ class FoursquareController extends Controller {
 
     }
 
-    private function parseResults($data) {
+    private function parseResults($data, $query, $request_type) {
         $results = array();
         $locations = $data['response']['groups']['0']['items'];
         $results['status'] = $data['meta']['code'];
-        $results['center']['lat'] = $data['response']['geocode']['center']['lat'];
-        $results['center']['lng'] = $data['response']['geocode']['center']['lng'];
+        if($request_type === "geo") {
+            $latlng = explode(',', $query);
+            $results['center']['lat'] = $latlng[0];
+            $results['center']['lng'] = $latlng[1];
+        }
+        if($request_type === "location") {
+            $results['center']['lat'] = $data['response']['geocode']['center']['lat'];
+            $results['center']['lng'] = $data['response']['geocode']['center']['lng'];
+        }
         $results['venues'] = array();
         $i = 1;
         foreach($locations as $location) {
