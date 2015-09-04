@@ -1,0 +1,54 @@
+body {
+  margin: 0 auto;
+  font-size: 16px;
+  font-family: Verdana, sans-serif;
+  background-size: cover;
+  box-sizing: border-box;
+  z-index: 4;
+  color: #fff;
+  background: url(../../img/bg2.jpg) no-repeat center center fixed; }
+
+.container {
+  margin: 0 auto;
+  max-width: 450px; }
+  .container .panel {
+    width: 100%;
+    background-color: #0e83cd;
+    display: inline-block;
+    z-index: 3;
+    float: left;
+    padding: 20px;
+    position: relative;
+    border-radius: 3px;
+    bottom: -200px; }
+    .container .panel .icon {
+      margin: 0 auto;
+      left: 36%;
+      position: relative;
+      margin-bottom: 10px; }
+
+.btn {
+  border-radius: 0;
+  display: inline-block;
+  background: none;
+  border: 3px solid #fff;
+  color: #fff; }
+
+form#city {
+  border-radius: 0; }
+
+#map {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+  z-index: 99;
+  display: none; }
+
+@media screen and (max-width: 600px), only screen and (min-device-pixel-ratio: 2) and (min-resolution: 192dpi) and (max-width: 568px) {
+  body {
+    background: #0e83cd; }
+  .container .panel {
+    bottom: 0; } }
+
+/*# sourceMappingURL=app.css.map */
