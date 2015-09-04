@@ -60,7 +60,7 @@ form#city {
   display: none;
 }
 
-@media all and (max-width: 600px) {
+@media screen and (max-width: 600px), only screen and (min-device-pixel-ratio: 2) and (min-resolution: 192dpi) and (max-width: 568px) {
   body {
     background: #0e83cd;
   }
