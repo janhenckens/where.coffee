@@ -31,8 +31,11 @@ class FoursquareController extends Controller {
         $client->getQuery()->set('client_id', $FSQ_CLIENT_ID);
         $client->getQuery()->set('client_secret', $FSQ_CLIENT_SECRET);
         $client->getQuery()->set('v', 20130815);
-        $client->getQuery()->set('querry', 'coffee');
-        $client->getQuery()->set('limit', '10');
+        $client->getQuery()->set('query', 'coffee');
+        $client->getQuery()->set('limit', '50');
+        $client->getQuery()->set('radius', '40000');
+        $client->getQuery()->set('sectionn', 'coffee');
+
         if($request_type === "location") {
             $client->getQuery()->set('near', $query);
         }
